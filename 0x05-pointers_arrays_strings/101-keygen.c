@@ -21,7 +21,7 @@ for (index = 0 ; index < 100 ; index++)
 pass[index] = rand() % 78;
 sum += (pass[index] + '0');
 putchar(pass[index] + '0');
-for ((2772 - sum) - '0' < 78)
+if ((2772 - sum) - '0' < 78)
 {
 num = 2772 - sum - '0';
 sum += num;
