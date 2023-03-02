@@ -29,7 +29,7 @@ void print_buffer(char *b, int size)
 			else if (*(b + in + byte) >= 31 && *(b + in + byte) <= 126)
 				printf("%c", *(b + in + byte));
 			else
-				printf(",");
+				printf(".");
 		}
 		if (byte >= size)
 			continue;
