@@ -1,46 +1,38 @@
-#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <ctype.h>
-#include <string.h>
+#include "main.h"
 /**
- * main- main func
- * @argc: par
- * @argv: par
- *Return: val
-*/
-
+ * main - prints the minimum number of coins to
+ * make change for an amount of money
+ * @argc: number of arguments
+ * @argv: array of arguments
+ *
+ * Return: 0 (Success), 1 (Error)
+ */
 int main(int argc, char *argv[])
 {
-	int pos, tot, chan, ax;
-	int cons[] = {25, 10, 5, 2, 1};
-
-	pos = tot = chan = ax = 0;
-
-	if (argc != 2)
-	{
-		puts("Error");
-		return (1);
-	}
-
-	tot = atoi(argv[1]);
-
-	if (tot <= 0)
-	{
-		puts("0\n");
-		return (0);
-	}
-	while (cons[pos] != '\0')
-	{
-		if (tot >= cons[pos])
-		{
-			ax = (tot / cons[pos]);
-			chan += ax;
-			tot -= cons[pos] * ax;
-		}
-	pos++;
-	}
-
-	printf("%d\n", chan);
-	return (0);
+int num, j, result;
+int coins[] = {25, 10, 5, 2, 1};
+if (argc != 2)
+{
+printf("Error\n");
+return (1);
+}
+num = atoi(argv[1]);
+result = 0;
+if (num < 0)
+{
+printf("0\n");
+return (0);
+}
+for (j = 0; j < 5 && num >= 0; j++)
+{
+while (num >= coins[j])
+{
+result++;
+num -= coins[j];
+}
+}
+printf("%d\n", result);
+return (0);
 }
